@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ✏️ PERSONALIZE: título da aba -->
+    <title>Formulário | Painel</title>
+
+    <!-- ✏️ PERSONALIZE: favicon — substitua pelo caminho da sua logo -->
+    <link rel="icon" type="image/png" href="/static/logo.png">
+    <meta name="theme-color" content="#0f1117">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">
+            <!-- ✏️ PERSONALIZE: substitua pela sua logo -->
+            <div class="logo-placeholder">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">SUA LOGO</span>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- ✏️ PERSONALIZE: links do menu de acesso rápido -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navDropdown" role="button" data-toggle="dropdown">
+                        <i class="fa fa-th-large"></i> Acesse
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navDropdown">
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-cube"></i> Serviço 1
+                        </a>
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-tasks"></i> Serviço 2
+                        </a>
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-envelope-o"></i> Serviço 3
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="wrapper wrapper-content">
+            <div class="form-container">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div id="progress-bar"></div>
+                        <hr>
+                        <form id="migration-form" novalidate>
+
+                            <!-- ═══════════════════════════════════════
+                                 ETAPA 0 — DADOS INICIAIS
+                                 ✏️ Adapte os campos para o seu contexto
+                            ════════════════════════════════════════ -->
+                            <div class="form-step hidden" data-step="0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group floating-label-group">
+                                            <input type="text" id="companyCid" name="companyCid" class="form-control" placeholder=" " required>
+                                            <!-- ✏️ Altere o label e tooltip conforme seu campo -->
+                                            <label for="companyCid">Identificador / Código</label>
+                                            <div class="tooltip-icon">?<span class="tooltip-text">Insira o identificador único do cliente ou referência.</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group floating-label-group">
+                                            <input type="text" id="techName" name="techName" class="form-control" placeholder=" " required>
+                                            <label for="techName">Responsável</label>
+                                            <div class="tooltip-icon">?<span class="tooltip-text">Nome do responsável pelo preenchimento.</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group floating-label-group">
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder=" " required>
+                                            <label for="phone">Telefone de Contato</label>
+                                            <div class="tooltip-icon">?<span class="tooltip-text">Telefone com DDD.</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group floating-label-group">
+                                            <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                                            <label for="email">E-mail de Contato</label>
+                                            <div class="tooltip-icon">?<span class="tooltip-text">E-mail para comunicações sobre a solicitação.</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group floating-label-group">
+                                    <input type="text" id="ticketNumber" name="ticketNumber" class="form-control" placeholder=" " required>
+                                    <label for="ticketNumber">Número do Chamado</label>
+                                    <div class="tooltip-icon">?<span class="tooltip-text">Número do ticket ou chamado desta solicitação.</span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn invisible">Voltar</button>
+                                    <button type="button" class="btn btn-primary next-btn">Continuar</button>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 ETAPA 1 — SEÇÃO A
+                                 ✏️ Renomeie e adapte os campos
+                            ════════════════════════════════════════ -->
+                            <div class="form-step hidden" data-step="1">
+                                <div class="form-group">
+                                    <!-- ✏️ Altere o label e as opções do select -->
+                                    <label for="dnsMigration">Seção A será incluída?
+                                        <div class="tooltip-icon">?<span class="tooltip-text">Selecione se esta seção se aplica ao seu caso.</span></div>
+                                    </label>
+                                    <select id="dnsMigration" name="dnsMigration" class="form-control" required>
+                                        <option value="">Selecione</option>
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
+                                </div>
+
+                                <div id="dns-conditional">
+                                    <div id="dns-sim-fields" class="hidden mt-3">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group floating-label-group">
+                                                    <input type="text" id="dnsUser" name="dnsUser" class="form-control" placeholder=" ">
+                                                    <!-- ✏️ Adapte o label -->
+                                                    <label for="dnsUser">Usuário</label>
+                                                    <div class="tooltip-icon">?<span class="tooltip-text">Credencial de acesso.</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group floating-label-group">
+                                                    <input type="text" id="dnsPass" name="dnsPass" class="form-control" placeholder=" ">
+                                                    <label for="dnsPass">Senha</label>
+                                                    <div class="tooltip-icon">?<span class="tooltip-text">Senha de acesso.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ✏️ Campo copiável — altere o valor padrão e o label -->
+                                        <div class="form-group floating-label-group input-group-copy">
+                                            <input type="text" id="registroBr" name="registroBr" class="form-control" placeholder=" " readonly value="CODIGO-PADRAO">
+                                            <label for="registroBr">Código de Referência</label>
+                                            <button type="button" class="btn-copy" id="copy-registro-br" title="Copiar">
+                                                <i class="fa fa-clone"></i>
+                                            </button>
+                                            <div class="tooltip-icon">?<span class="tooltip-text">Código fixo — não é necessário alterar.</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- ✏️ Mensagem exibida quando "Não" é selecionado — adapte o texto e link -->
+                                    <div id="dns-nao-fields" class="hidden alert alert-info mt-3">
+                                        <p class="mb-0">Esta seção não se aplica. <a href="#" target="_blank" class="font-weight-bold">Clique aqui para mais informações.</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn">Voltar</button>
+                                    <button type="button" class="btn btn-primary next-btn">Continuar</button>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 ETAPA 2 — SEÇÃO B
+                                 ✏️ Renomeie e adapte os campos
+                            ════════════════════════════════════════ -->
+                            <div class="form-step hidden" data-step="2">
+                                <div class="form-group">
+                                    <label for="siteMigration">Seção B será incluída?
+                                        <div class="tooltip-icon">?<span class="tooltip-text">Informe se esta seção se aplica ao seu caso.</span></div>
+                                    </label>
+                                    <select id="siteMigration" name="siteMigration" class="form-control" required>
+                                        <option value="">Selecione</option>
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                        <!-- ✏️ Adicione/remova opções conforme necessário -->
+                                        <option value="nao_tenho">Não se aplica</option>
+                                    </select>
+                                </div>
+
+                                <div id="site-conditional" class="hidden mt-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group floating-label-group">
+                                                <input type="text" id="siteUser" name="siteUser" class="form-control" placeholder=" ">
+                                                <!-- ✏️ Adapte o label -->
+                                                <label for="siteUser">Usuário de Acesso</label>
+                                                <div class="tooltip-icon">?<span class="tooltip-text">Usuário para acesso ao serviço.</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group floating-label-group">
+                                                <input type="text" id="sitePass" name="sitePass" class="form-control" placeholder=" ">
+                                                <label for="sitePass">Senha de Acesso</label>
+                                                <div class="tooltip-icon">?<span class="tooltip-text">Senha para acesso ao serviço.</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group floating-label-group">
+                                        <input type="text" id="siteLink" name="siteLink" class="form-control" placeholder="https://...">
+                                        <!-- ✏️ Adapte o label -->
+                                        <label for="siteLink">Link de Referência (opcional)</label>
+                                        <div class="tooltip-icon">?<span class="tooltip-text">URL ou link compartilhável, se aplicável.</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn">Voltar</button>
+                                    <button type="button" class="btn btn-primary next-btn">Continuar</button>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 ETAPA 3 — SEÇÃO C (lista de itens)
+                                 ✏️ Renomeie colunas, selects e labels
+                            ════════════════════════════════════════ -->
+                            <div class="form-step hidden" data-step="3">
+                                <div class="form-group">
+                                    <label for="emailMigration">Seção C será incluída?
+                                        <div class="tooltip-icon">?<span class="tooltip-text">Informe se esta seção se aplica ao seu caso.</span></div>
+                                    </label>
+                                    <select id="emailMigration" name="emailMigration" class="form-control" required>
+                                        <option value="">Selecione</option>
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
+                                </div>
+
+                                <div id="email-conditional" class="hidden mt-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <!-- ✏️ Adapte o label e as opções -->
+                                                <label for="emailTechnology">Tipo / Tecnologia
+                                                    <div class="tooltip-icon">?<span class="tooltip-text">Selecione o tipo aplicável.</span></div>
+                                                </label>
+                                                <select id="emailTechnology" name="emailTechnology" class="form-control">
+                                                    <option value="">Selecione</option>
+                                                    <!-- ✏️ Substitua pelas opções do seu contexto -->
+                                                    <option value="tipo_a">Tipo A</option>
+                                                    <option value="tipo_b">Tipo B</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="email-protocol-container" class="hidden">
+                                                <div class="form-group">
+                                                    <!-- ✏️ Adapte o label e as opções -->
+                                                    <label for="emailProtocol">Protocolo / Modalidade
+                                                        <div class="tooltip-icon">?<span class="tooltip-text">Escolha o protocolo ou modalidade.</span></div>
+                                                    </label>
+                                                    <select id="emailProtocol" name="emailProtocol" class="form-control">
+                                                        <option value="">Selecione</option>
+                                                        <option value="pop">Opção 1</option>
+                                                        <option value="imap">Opção 2</option>
+                                                        <option value="ambos">Ambos</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="email-details-fields" class="hidden mt-3">
+                                        <div id="imap-fields" class="hidden row">
+                                            <div class="col-md-6">
+                                                <div class="form-group floating-label-group">
+                                                    <input type="text" id="emailProvider" name="emailProvider" class="form-control" placeholder=" ">
+                                                    <!-- ✏️ Adapte o label -->
+                                                    <label for="emailProvider">Provedor / Origem</label>
+                                                    <div class="tooltip-icon">?<span class="tooltip-text">Nome do provedor ou sistema de origem.</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group floating-label-group">
+                                                    <input type="text" id="imapServer" name="imapServer" class="form-control" placeholder=" ">
+                                                    <!-- ✏️ Adapte o label -->
+                                                    <label for="imapServer">Servidor / Endpoint</label>
+                                                    <div class="tooltip-icon">?<span class="tooltip-text">Endereço do servidor de origem.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- ✏️ Adapte os requisitos de senha conforme sua política -->
+                                        <div class="alert alert-info mb-3">
+                                            <strong>Requisitos de senha:</strong>
+                                            <ul class="mb-0 mt-2">
+                                                <li>Mínimo 8 caracteres</li>
+                                                <li>Pelo menos 1 letra maiúscula e 1 minúscula</li>
+                                                <li>Pelo menos 1 número e 1 caractere especial</li>
+                                                <li><strong>NÃO USE:</strong> / [ ] " ' ;</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- ✏️ Adapte os cabeçalhos da tabela -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nome</th>
+                                                        <th>Sobrenome</th>
+                                                        <th>Campo Origem</th>
+                                                        <th>Senha Origem</th>
+                                                        <th>Campo Destino</th>
+                                                        <th>Senha Destino</th>
+                                                        <th>Categoria</th>
+                                                        <th>Remover</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="email-table-body"></tbody>
+                                            </table>
+                                        </div>
+
+                                        <button type="button" id="add-email-row" class="btn btn-sm btn-info">
+                                            <i class="fa fa-plus"></i> Adicionar item
+                                        </button>
+
+                                        <div class="text-center pt-4 mt-4 border-top">
+                                            <p class="small mb-2">Prefere preencher pelo Excel?
+                                                <a href="#" id="download-template" class="font-weight-bold" style="color:var(--accent);">Baixe o template</a>.
+                                            </p>
+                                            <div id="upload-area-trigger" class="upload-area">
+                                                <span>Faça upload do seu arquivo Excel ou CSV</span>
+                                                <p id="file-name" class="small text-muted mt-1">Nenhum arquivo selecionado</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn">Voltar</button>
+                                    <button type="submit" class="btn btn-primary next-btn">Enviar</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div id="success-message" class="hidden">
+                            <div class="alert alert-success">
+                                <h4>Formulário enviado com sucesso!</h4>
+                                <p>Obrigado por preencher o formulário. Entraremos em contato em breve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <!-- ✏️ Altere o texto do rodapé -->
+            <div>© Sua Empresa 2025</div>
+        </div>
+    </div>
+</div>
+
+<!-- ✏️ PERSONALIZE: link do botão de ajuda flutuante -->
+<a href="#" target="_blank" class="floating-help-btn" title="Ajuda">?</a>
+<input id="excel-upload" name="excel-upload" type="file" class="hidden" accept=".csv,.xlsx,.xls">
+
+<!-- Modal de confirmação -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirmar envio do formulário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Revise as informações abaixo antes de confirmar.</p>
+                <div id="confirm-summary" style="max-height:420px;overflow:auto;padding:8px;border:1px solid #e9ecef;border-radius:6px;background:#fff"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar e revisar</button>
+                <button type="button" id="confirm-send-btn" class="btn btn-primary">Confirmar envio</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="submit-handler.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

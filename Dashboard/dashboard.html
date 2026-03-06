@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ✏️ PERSONALIZE: título da aba -->
+    <title>Dashboard | Painel de Controle</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-custom">
+        <a class="navbar-brand" href="#">
+            <!-- ✏️ PERSONALIZE: substitua pela sua logo -->
+            <div class="logo-placeholder">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">SUA LOGO</span>
+            </div>
+        </a>
+
+        <!-- Toggle dark/light -->
+        <div id="switch" onclick="togglemode()">
+            <button></button>
+            <span></span>
+        </div>
+
+        <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <!-- ✏️ PERSONALIZE: links do menu de acesso rápido -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button">
+                        <i class="fa fa-th-large"></i> Acesse
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-cube"></i> Serviço 1
+                        </a>
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-tasks"></i> Serviço 2
+                        </a>
+                        <a class="dropdown-item" href="#" target="_blank">
+                            <i class="fa fa-envelope"></i> Serviço 3
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Usuário logado -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle user-profile" href="#" role="button">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Usuário</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item btn-logout" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <div class="background-pattern"></div>
+
+        <div class="search-header">
+            <!-- ✏️ PERSONALIZE: título e subtítulo da busca -->
+            <h1 class="search-title">Qual registro você deseja visualizar?</h1>
+        </div>
+
+        <div class="search-container">
+            <form class="search-box" onsubmit="handleSearch(event)">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Digite o identificador ou nome..."
+                    id="searchInput"
+                    autocomplete="off"
+                >
+                <button type="submit" class="search-btn">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

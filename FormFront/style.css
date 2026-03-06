@@ -1,0 +1,380 @@
+/* ═══════════════════════════════════════════════════
+   VARIÁVEIS — personalize aqui as cores e fontes
+   ════════════════════════════════════════════════ */
+:root {
+    /* ✏️ Cor de destaque principal (botões, foco, progresso) */
+    --accent:           #4F7EF7;
+    --accent-dark:      #3A66D4;
+
+    /* ✏️ Fundo geral da página */
+    --bg-page:          #0f1117;
+    --bg-surface:       #171c26;
+    --bg-navbar:        #0d1018;
+
+    /* ✏️ Bordas e separadores */
+    --border:           #252d3a;
+
+    /* ✏️ Textos */
+    --text-primary:     #e8eaf0;
+    --text-muted:       #6b7280;
+
+    /* ✏️ Estados de erro */
+    --red-error:        #ef4444;
+}
+
+/* ═══════════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════════ */
+/* ✏️ Troque 'DM Sans' pela fonte que preferir */
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg-page);
+    color: #374151;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: var(--bg-page);
+}
+
+.wrapper-content {
+    padding: 40px 10px 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════
+   CARD DO FORMULÁRIO
+   ════════════════════════════════════════════════ */
+.ibox { clear: both; margin-bottom: 25px; padding: 0; }
+
+.ibox-content {
+    background-color: #ffffff;
+    padding: 15px 20px 20px;
+    border: 1px solid #e7eaec;
+    border-radius: 8px;
+}
+
+/* ═══════════════════════════════════════════════════
+   NAVBAR
+   ════════════════════════════════════════════════ */
+.navbar-custom {
+    background-color: var(--bg-navbar);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ✏️ Logo placeholder — substitua quando tiver sua logo */
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.logo-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.navbar-custom .nav-link          { color: var(--text-primary); padding: .5rem 1rem; }
+.navbar-custom .nav-link:hover    { color: var(--accent); }
+
+.navbar-custom .dropdown-menu     { background-color: var(--bg-surface); border: 1px solid var(--border); }
+.navbar-custom .dropdown-item     { color: var(--text-primary); display: flex; align-items: center; }
+.navbar-custom .dropdown-item .fa { margin-right: 10px; width: 20px; text-align: center; }
+.navbar-custom .dropdown-item:hover { background-color: var(--border); color: var(--accent); }
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════
+   BOTÕES  ✏️ --accent controla a cor principal
+   ════════════════════════════════════════════════ */
+.btn-primary,
+.floating-help-btn,
+#add-email-row {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+.btn-primary:hover,
+.floating-help-btn:hover,
+#add-email-row:hover {
+    background-color: var(--accent-dark) !important;
+    border-color: var(--accent-dark) !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   BOTÃO FLUTUANTE DE AJUDA
+   ════════════════════════════════════════════════ */
+.floating-help-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(79, 126, 247, 0.35);
+    transition: background-color .2s, transform .2s;
+    z-index: 1000;
+}
+
+.floating-help-btn:hover {
+    color: white;
+    transform: scale(1.08);
+}
+
+/* ═══════════════════════════════════════════════════
+   ÁREA DE UPLOAD
+   ════════════════════════════════════════════════ */
+.upload-area {
+    border: 2px dashed #d1d5db;
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .2s;
+}
+
+.upload-area span { color: var(--accent); }
+.upload-area:hover { border-color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════
+   UTILITÁRIOS
+   ════════════════════════════════════════════════ */
+.hidden    { display: none !important; }
+.invisible { visibility: hidden; }
+
+/* ═══════════════════════════════════════════════════
+   BARRA DE PROGRESSO
+   ════════════════════════════════════════════════ */
+#progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.progress-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s ease;
+    z-index: 2;
+    background-color: #ffffff;
+    border: 3px solid #d1d5db;
+    color: #6b7280;
+}
+
+.progress-circle .fa,
+.progress-circle b { font-size: 1.1rem; }
+
+.progress-step.completed .progress-circle,
+.progress-circle.active {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: white;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent);
+}
+
+.progress-label {
+    margin-top: .75rem;
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    transition: color .4s ease;
+}
+
+.progress-label.active            { color: var(--accent); }
+.progress-step.completed .progress-label { color: #374151; }
+
+.progress-step:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    right: 50%;
+    width: 100%;
+    height: 3px;
+    background-color: #d1d5db;
+    transition: background-color .4s ease;
+    z-index: 1;
+}
+
+.progress-step.completed::before { background-color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════
+   STEPS DO FORMULÁRIO
+   ════════════════════════════════════════════════ */
+.form-step { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.form-control.error { border-color: var(--red-error); }
+.form-control.error:focus { box-shadow: 0 0 0 .2rem rgba(239,68,68,.25); }
+
+/* ═══════════════════════════════════════════════════
+   TOOLTIP
+   ════════════════════════════════════════════════ */
+.tooltip-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-left: .5rem;
+    background-color: #6b7280;
+    color: white;
+    border-radius: 50%;
+    font-size: .72rem;
+    font-weight: 700;
+    cursor: help;
+}
+
+.tooltip-text {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+    width: max-content;
+    max-width: 250px;
+    font-size: .8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.tooltip-icon:hover .tooltip-text { opacity: 1; visibility: visible; }
+
+/* ═══════════════════════════════════════════════════
+   FLOATING LABEL
+   ════════════════════════════════════════════════ */
+.floating-label-group { position: relative; }
+
+.floating-label-group label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #6c757d;
+    background-color: white;
+    padding: 0 .25rem;
+    margin-bottom: 0;
+    transition: all .2s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-label-group .form-control { height: calc(3rem + 2px); }
+
+.floating-label-group .form-control:not(:placeholder-shown)+label,
+.floating-label-group .form-control:focus+label {
+    top: 0;
+    left: .75rem;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--accent);  /* ✏️ controlado por --accent */
+    z-index: 3;
+}
+
+.floating-label-group .form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 .2rem rgba(79, 126, 247, .2);  /* ✏️ ajuste o rgba para combinar com --accent */
+}
+
+.floating-label-group .form-control[readonly]+label { background-color: #e9ecef; }
+
+.floating-label-group .tooltip-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════
+   CAMPO COPIÁVEL
+   ════════════════════════════════════════════════ */
+.input-group-copy .btn-copy {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: .5rem;
+    z-index: 4;
+    transition: color .2s;
+}
+
+.input-group-copy .btn-copy:hover { color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════
+   RODAPÉ
+   ════════════════════════════════════════════════ */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-page);
+    border-top: 1px solid var(--border);
+    padding: 10px 20px;
+    color: var(--text-muted);
+    font-size: .82rem;
+    z-index: 999;
+}
+
+/* ═══════════════════════════════════════════════════
+   MODAL
+   ════════════════════════════════════════════════ */
+.modal-header { border-bottom: 1px solid #e9ecef; }
+.modal-footer { border-top: 1px solid #e9ecef; }
