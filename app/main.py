@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
+from app.database_users import create_users_tables
 from app.routers import form
 from dotenv import load_dotenv
 
@@ -8,6 +9,7 @@ load_dotenv()
 
 # Criar tabelas no banco
 Base.metadata.create_all(bind=engine)
+create_users_tables()
 
 app = FastAPI(
     title="Form Template API",
